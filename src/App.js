@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Wrapper from './components/Wrapper'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    let [counter, setCounter] = useState(0)
+    let [value, setValue] = useState("some text")
+
+    return (
+        <Wrapper value={value}>
+            <p>{counter}</p>
+            <input value={value} onChange={(event) => {setValue(event.target.value)}}/>
+            <button onClick={() => setCounter(counter +=1)}>+</button>
+            <button onClick={() => setCounter(counter -= 1)}>-</button>
+        </Wrapper>
+    )
 }
 
 export default App;
