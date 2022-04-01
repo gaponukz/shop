@@ -1,3 +1,8 @@
-.App {
-  text-align: center;
+body {
+  background-color: #121212;;
+  color: rgba(255,255,255,.55);
+}
+
+.dark-nav {
+  background-color: #1E1E1E;;
 }
