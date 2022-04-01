@@ -10,7 +10,13 @@ const Navbar = (props) => {
             <ul className="nav justify-content-end">
                 {scripts.map(script => 
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">{script.name}</a>
+                        <a
+                            className="nav-link"
+                            aria-current="page"
+                            href="#" 
+                            onClick={() => props.pageSetter(script.name)}>
+                                {script.name}
+                        </a>
                     </li>
                 )}
             </ul>

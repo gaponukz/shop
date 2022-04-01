@@ -1,8 +1,32 @@
 body {
-  background-color: #121212;;
-  color: rgba(255,255,255,.55);
+  background-color: #272627;
+  color: #C5C6C8;
 }
 
 .dark-nav {
-  background-color: #1E1E1E;;
+  background-color: #222222;
+}
+
+.nav-link {
+  color: #66FCF1;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url(menu.svg);
+}
+.navbar-toggler {
+  box-shadow: none;
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none
+}
+
+.image-container {
+  text-align: right;
+}
+
+.start-image {
+  width: 100%;
 }
