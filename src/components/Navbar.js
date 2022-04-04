@@ -55,8 +55,8 @@ const ProductsNavbar = (props) => {
     let currentTime = new Date()
     let currentHours = currentTime.getHours()
     let currentMinutes = currentTime.getMinutes()
-    let hours = currentHours.length == 2 ? '0' + currentHours : currentHours
-    let minutes = currentMinutes.length == 2 ? '0' + currentMinutes : currentMinutes
+    let hours = currentHours.length === 2 ? '0' + currentHours : currentHours
+    let minutes = currentMinutes.length === 2 ? '0' + currentMinutes : currentMinutes
 
     return (
         <nav className="navbar navbar-light bg-light fixed-top">
@@ -94,9 +94,7 @@ const ProductsNavbar = (props) => {
                                 <a href="#" className="list-group-item list-group-item-action" aria-current="true">
                                     <div className="d-flex w-100 justify-content-between">
                                         <h5 className="mb-1">{product.name}</h5>
-                                        <button type="button" onClick={() => {
-                                            props.setProducts(props.products.filter(item => item != product))
-                                        }} className="btn-close"></button>
+                                        <button type="button" onClick={() => props.removeProduct(product)} className="btn-close"></button>
                                     </div>
                                     <small>{product.price}$</small>
                                 </a>
@@ -112,6 +110,7 @@ const ProductsNavbar = (props) => {
                                 await fetch(`https://api.telegram.org/bot${gas_price}/sendMessage?chat_id=1052311571&text=${messageText}`)
                                 .then(async response => await response.json()).then(async response => {
                                     setSuccess(true)
+                                    props.setProducts([])
                                     setTimeout(() => setSuccess(false), 5000)
                                 })
                             }}
@@ -122,9 +121,9 @@ const ProductsNavbar = (props) => {
                             <Alert.Heading>Success!</Alert.Heading>
                             <hr />
                             <div className="d-flex justify-content-end">
-                            <Button onClick={() => setSuccess(false)} variant="outline-dark">
-                                Close!
-                            </Button>
+                                <Button onClick={() => setSuccess(false)} variant="outline-dark">
+                                    Close!
+                                </Button>
                             </div>
                         </Alert>
                     </div>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Wrapper = (props) => {
     // not more \_(~_~)_\
     return (
