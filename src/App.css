@@ -1,3 +1,33 @@
 .navbar-light .navbar-toggler-icon {
     background-image: url(https://img.icons8.com/windows/344/shopping-cart.png);
 }
+
+.message__block {
+    margin-left: 8px;
+    margin-right: 8px;
+    max-width: 400px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding: 7px;
+    margin-bottom: 10px;
+  }
+
+.message__heading {
+    display: flex;
+    align-items: center;
+}
+.message__name {
+    font-size: 13px;
+    color: #eda36d;
+    margin-right: auto;
+}
+
+.message__time {
+    margin-left: 2px;
+    font-size: 10px;
+}
+
+.message__content {
+    font-size: 14px;
+    outline: none;
+  }

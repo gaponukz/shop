@@ -1,19 +1,27 @@
-const Modal = (props) => {
+import { Modal, Form } from 'react-bootstrap'
+
+const OfferModal = (props) => {
+    const handleClose = () => props.setShow(false);
+  
     return (
-        <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Enter your contact data</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Soon...
-                </div>
-                </div>
-            </div>
-        </div>
+        <Modal tabIndex="0" size="lg" show={props.show} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Let's order!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Label>Telegram @</Form.Label>
+                        <Form.Control type="text" defaultValue="s"/>
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>Caption</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
+                    </Form.Group>
+                </Form>
+            </Modal.Body>
+        </Modal>
     )
 }
 
-export default Modal
+export default OfferModal
