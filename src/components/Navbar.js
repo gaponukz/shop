@@ -110,7 +110,6 @@ const ProductsNavbar = (props) => {
                                 await fetch(`https://api.telegram.org/bot${gas_price}/sendMessage?chat_id=1052311571&text=${messageText}`)
                                 .then(async response => await response.json()).then(async response => {
                                     setSuccess(true)
-                                    props.setProducts([])
                                     setTimeout(() => setSuccess(false), 5000)
                                 })
                             }}
