@@ -1,7 +1,10 @@
 const CardWrapper = (props) => {
+    const className = `card h-100 ${props.theme === 'dark' ? 'bg-dark' : ''}`
+    const style = props.theme === 'dark' ? {color: 'white'} : {}
+
     return (
         <div className="col">
-            <div className="card h-100">
+            <div className={className} style={style}>
                 {props.children}
             </div>
         </div>
@@ -9,11 +12,7 @@ const CardWrapper = (props) => {
 }
 
 const CardPhoto = (props) => {
-    return (
-        <>
-            <img src={props.src} className="card-img-top"/>
-        </>
-    )
+    return (<img src={props.src} className="card-img-top"/>)
 }
 
 const CardBody = (props) => {
@@ -50,4 +49,13 @@ const CardFooter = (props) => {
     )
 }
 
-export  {CardWrapper, CardPhoto, CardBody, CardTitle, CardText, CardFooter}
+const CardButton = (props) => {
+    const theme = {dark: 'light', light: 'dark'}[props.theme]
+    return (
+        <button type="button" onClick={props.onClick} className={`btn btn-outline-${theme}`}>
+            {props.children}
+        </button>
+    )
+}
+
+export {CardWrapper, CardPhoto, CardBody, CardTitle, CardText, CardFooter, CardButton}

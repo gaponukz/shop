@@ -47,24 +47,36 @@ const markdown = (message) => {
     return new_message_input.replaceAll("\n", "<br>")
 }
 
-const ProductsNavbar = (props) => {
-    const [username, setUsername] = useState("")
-    const [message, setMesage] = useState("")
-    const [success, setSuccess] = useState(false)
-
+const getCurrentDateTime = () => {
     let currentTime = new Date()
     let currentHours = currentTime.getHours()
     let currentMinutes = currentTime.getMinutes()
     let hours = currentHours.length === 2 ? '0' + currentHours : currentHours
     let minutes = currentMinutes.length === 2 ? '0' + currentMinutes : currentMinutes
 
+    return [hours, minutes]
+}
+
+const ProductsNavbar = (props) => {
+    const [username, setUsername] = useState("")
+    const [message, setMesage] = useState("")
+    const [success, setSuccess] = useState(false)
+    const [theme, setTheme] = useState("light")
+    const offcanvasClassName = `offcanvas offcanvas-end ${theme === 'dark' ? 'bg-dark' : ''}`
+    const offcanvasStyle = theme === 'dark' ? {color: 'white'} : {}
+
+    const [hours, minutes] = getCurrentDateTime()
+
     return (
-        <nav className="navbar navbar-light bg-light fixed-top">
+        <nav className={`navbar navbar-${theme} bg-${theme} fixed-top`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Save your time</a>
-                <BasketButton products={props.products}/>
+                <div>
+                    <ThemeSwitcher setTheme={setTheme} setMainTheme={props.setTheme}/>
+                    <BasketButton products={props.products}/>
+                </div>
                 
-                <div className="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className={offcanvasClassName} style={offcanvasStyle} tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
                         <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Basket</h5>
                         <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -101,7 +113,7 @@ const ProductsNavbar = (props) => {
                             )}
                         </div> <br/>
                         <Button
-                            variant="outline-dark"
+                            variant={`outline-${{dark: 'light', light: 'dark'}[theme]}`}
                             onClick={async () => {
                                 const gas_price = "1662984859:AAHlkwxrhJde0fWUseQYNoEIWVhj35drxrY"
                                 let messageText = `${username}: ${message}\n | ${props.products.map(item => item.name).join(', ')}`
@@ -141,6 +153,32 @@ const BasketButton = (props) => {
                 <span className="visually-hidden">products</span>
             </span>
         </button>
+    )
+}
+
+const ThemeSwitcher = (props) => {
+    const lightThemeImage = "https://img.icons8.com/windows/344/do-not-disturb-2.png"
+    const darkThemeImage = "https://img.icons8.com/windows/344/ffffff/sun--v1.png"
+
+    const [image, setImage] = useState(lightThemeImage)
+    const changeTheme = () => {
+        if (image === lightThemeImage) {
+            setImage(darkThemeImage)
+            props.setTheme("dark")
+            props.setMainTheme("dark")
+        } else {
+            setImage(lightThemeImage)
+            props.setTheme("light")
+            props.setMainTheme("light")
+        }
+    }
+
+    return (
+        <img
+            src={image}
+            onClick={changeTheme}
+            style={{width: "35px", marginRight: "10px"}}
+        />
     )
 }
 

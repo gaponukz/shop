@@ -7,6 +7,7 @@ import {
     CardBody, 
     CardTitle, 
     CardText, 
+    CardButton,
     CardFooter 
 } from './components/Card'
 import _ from 'jquery'
@@ -53,6 +54,7 @@ const App = () => {
 
     const [products, setProducts] = useState([])
     const [buttons, switchers] = useState(__buttons)
+    const [theme, setTheme] = useState("light")
 
     const addProduct = (product) => {
         setProducts(products.concat([product]))
@@ -68,12 +70,13 @@ const App = () => {
         <ProductsNavbar 
             products={products} 
             removeProduct={removeProduct}
+            setTheme={setTheme}
         />
         <br/> <br/> <br/>
-        <Wrapper>  
+        <Wrapper theme={theme}>  
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {productsList.map(product => 
-                    <CardWrapper>
+                    <CardWrapper theme={theme}>
                         <CardPhoto src={product.photo} />
 
                         <CardBody>
@@ -82,8 +85,8 @@ const App = () => {
                         </CardBody>
 
                         <CardFooter>{{
-                            add: <button type="button" onClick={() => addProduct(product)} className="btn btn-outline-dark">+{product.price}$</button>,
-                            remove: <button type="button" onClick={() => removeProduct(product)} className="btn btn-outline-dark">-{product.price}$</button>
+                            add: <CardButton theme={theme} onClick={() => addProduct(product)}>+{product.price}$</CardButton>,
+                            remove: <CardButton theme={theme} onClick={() => removeProduct(product)}>-{product.price}$</CardButton>
                         }[buttons[product.name]]}</CardFooter>
                     </CardWrapper>
                 )}

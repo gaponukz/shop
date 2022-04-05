@@ -2,6 +2,10 @@
     background-image: url(https://img.icons8.com/windows/344/shopping-cart.png);
 }
 
+.navbar-dark .navbar-toggler-icon {
+    background-image: url(https://img.icons8.com/windows/344/ffffff/shopping-cart.png);
+}
+
 .message__block {
     margin-left: 8px;
     margin-right: 8px;
@@ -30,4 +34,8 @@
 .message__content {
     font-size: 14px;
     outline: none;
-  }
+}
+
+.background-dark {
+    background-color: #282C34;
+}
