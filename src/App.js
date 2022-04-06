@@ -51,10 +51,11 @@ const App = () => {
     for (let product of productsList) {
         __buttons[product.name] = "add"
     }
+    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
     const [products, setProducts] = useState([])
     const [buttons, switchers] = useState(__buttons)
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState(userPrefersDark ? "dark" : "light")
 
     const addProduct = (product) => {
         setProducts(products.concat([product]))
@@ -70,6 +71,7 @@ const App = () => {
         <ProductsNavbar 
             products={products} 
             removeProduct={removeProduct}
+            theme={theme}
             setTheme={setTheme}
         />
         <br/> <br/> <br/>

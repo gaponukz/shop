@@ -61,18 +61,18 @@ const ProductsNavbar = (props) => {
     const [username, setUsername] = useState("")
     const [message, setMesage] = useState("")
     const [success, setSuccess] = useState(false)
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState(props.theme)
+    const [hours, minutes] = getCurrentDateTime()
+
     const offcanvasClassName = `offcanvas offcanvas-end ${theme === 'dark' ? 'bg-dark' : ''}`
     const offcanvasStyle = theme === 'dark' ? {color: 'white'} : {}
-
-    const [hours, minutes] = getCurrentDateTime()
 
     return (
         <nav className={`navbar navbar-${theme} bg-${theme} fixed-top`}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Save your time</a>
                 <div>
-                    <ThemeSwitcher setTheme={setTheme} setMainTheme={props.setTheme}/>
+                    <ThemeSwitcher theme={props.theme} setTheme={setTheme} setMainTheme={props.setTheme}/>
                     <BasketButton products={props.products}/>
                 </div>
                 
@@ -160,17 +160,14 @@ const ThemeSwitcher = (props) => {
     const lightThemeImage = "https://img.icons8.com/windows/344/do-not-disturb-2.png"
     const darkThemeImage = "https://img.icons8.com/windows/344/ffffff/sun--v1.png"
 
-    const [image, setImage] = useState(lightThemeImage)
+    const [image, setImage] = useState(props.theme === "dark" ? darkThemeImage : lightThemeImage)
+
     const changeTheme = () => {
-        if (image === lightThemeImage) {
-            setImage(darkThemeImage)
-            props.setTheme("dark")
-            props.setMainTheme("dark")
-        } else {
-            setImage(lightThemeImage)
-            props.setTheme("light")
-            props.setMainTheme("light")
-        }
+        const themeToSet = {dark: 'light', light: 'dark'}[props.theme]
+        
+        setImage(themeToSet == "light" ? lightThemeImage : darkThemeImage)
+        props.setTheme(themeToSet)
+        props.setMainTheme(themeToSet)
     }
 
     return (
@@ -184,12 +181,12 @@ const ThemeSwitcher = (props) => {
 
 const MessageBox = (props) => {
     return (
-        <div class="message__block">
-            <div class="message__heading">
-                <div class="message__name">{props.name}</div>
-                <div class="message__time">{props.time}</div>
+        <div className="message__block">
+            <div className="message__heading">
+                <div className="message__name">{props.name}</div>
+                <div className="message__time">{props.time}</div>
             </div>
-            <div class="message__content" contenteditable="" spellcheck="false">
+            <div className="message__content" contenteditable="" spellcheck="false">
                 {props.children}
             </div>
         </div>
