@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Telefost",
+        "price": 500,
+        "photo": "images/telefost.png",
+        "description": {
+            "uk": "telefost - це сучасний і ефективний метод набрати аудиторію у свій канал/чат та робити розсилки, інструмент який ви будете точно задоволені. Купляючи цей товар ви отримуєте Accounts management, Parser, Sender, Inviter. Які особливості? Сторінка Accounts management, на якій ви можете змінити(ім'я, username, password, bio, photo) свої акаунти під вас, а також перевірити їх на працездатність.Цікавий функціонал та зручний дизайн - якості яких ви не знайдете у \"конкурентів\" :)",
+            "en": "telefost is a modern and effective method of gaining an audience in your channel / chat and mailing, a tool that you will be exactly happy with. Buying this product you get Accounts management, Parser, Sender, Inviter. What are the features? Accounts management page, where you can change (name, username, password, bio, photo) your accounts for you, as well as check them for functionality.Interesting functionality and convenient design - qualities you will not find in the \"competitors\" :)"
+        }
+    },
+    {
+        "name": "Sender",
+        "price": 150,
+        "photo": "images/spammer.png",
+        "description": {
+            "uk": "А також відомий як Spammer, допоможе вам швидко(чи ні) розіслати повідомлення з фотографіями/файлами чи без для вибраної аудиторії. Має markdown який підтримую Telegram, рандомізацію слів {приівіт|доброго дня|} та підтримку {%first_name%} щоб звернуться по імені до користувача. Також після запуску можна любуватись як проходить процес у вікні Logging", 
+            "en": "Also known as Spammer, it helps you quickly (or not) send messages with or without photos / files to your chosen audience. It has a markdown that supports Telegram, randomization of the words {hello | good afternoon |} and support for {% first_name%} to address the user by name. You can also watch the process in the Logging window after launch"
+        }
+    },
+    {
+        "name": "Inviter",
+        "price": 150,
+        "photo": "images/inviter.png",
+        "description": {
+            "uk": "По функціоналу схожий з Sender, але тут, як ти зрозумів, не відправляємо повідомлення, а наповнюєм чат/канал аудиторією. Налаштування не різняться. Різниться логінг за яким можна спостерігати після запуску, і це не куча тексту, а діаграма, на яку мило дивитись.",
+            "en": "Functionally similar to Sender, but here, as you understand, do not send messages, and fill the chat / channel with the audience. The settings do not differ. The login that you can watch after launch is different, and it's not a bunch of text, but a chart that is nice to look at."
+        }
+    },
+    {
+        "name": "Channel parser",
+        "price": 100,
+        "photo": "images/channel_parser.png",
+        "description": {
+            "uk": "Не самий звичайний парсер, адже ми беремо аудиторію не чатів, в каналів(звичайно лише тих, у який доступні коментарі)! Як це працює? У полі Messages указуєм кількість повідомлень(дописів) які ми спрарсимо з каналу, саме з них ми будемо брати коментарі та аудиторію з них. Є декілька параметрів-фільтрів для аудиторії: останній час онлайн(Time online) та сховані статуси, blacklist, whitelist. Спостерігай за процесом у стандартному полі Logging.",
+            "en": "Not the most common parser, because we take the audience not chats, in channels (usually only those in which comments are available)! How does it work? In the Messages field, specify the number of messages (posts) that we will send from the channel, from which we will take comments and the audience from them. There are several parameters-filters for the audience: recently online and hidden statuses, blacklist, whitelist. Observe the process in the standard Logging field."
+        }
+    },
+    {
+        "name": "Olx parser",
+        "price": 150,
+        "photo": "images/olx_parser.png",
+        "description": {
+            "uk": "Саме той парсер для olx, який ти шукав - без зайвих налаштувань та зі зручним дизайном. Через \"Add template\" додавайте віконця(які можна рухать), введіть сторінку яку потрібно спарсити, виберіть таймаут, відзначте чи хочете спостерігати за процесом в вікні веб браузера, кількість сторінок і Start! Після ви будете спостерігати за логами та як куля(як пісковий годинник) наповнюється. Кожне запущене вікно - це новий нещалежний процес, тому можна відразу парсити багато сторінок", 
+            "en": "Exactly the parser for olx that you were looking for - without unnecessary settings and with a convenient design. Through the \"Add template\" add windows (which can be moved), enter the page you want to save, select the timeout, mark whether you want to watch the process in the web browser window, the number of pages and Start! Afterwards you will watch the logs and how the ball (like an hourglass) fills up. Every running window is a new unfortunate process, so you can parse many pages at once"
+        }
+    }
+]

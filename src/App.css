@@ -39,3 +39,17 @@
 .background-dark {
     background-color: #282C34;
 }
+
+.nav-select {
+    border: none;
+    background: none;
+    margin-right: 10px;
+}
+
+option {
+    color: black !important;
+}
+
+select:focus {
+    border: none
+}

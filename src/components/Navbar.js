@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Select from 'react-select'
 import { Button, Form, Alert } from 'react-bootstrap'
 
 const markdown = (message) => {
@@ -72,6 +73,7 @@ const ProductsNavbar = (props) => {
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">Save your time</a>
                 <div>
+                    <LanguageSelector theme={props.theme} language={props.language} setLanguage={props.setLanguage}/>
                     <ThemeSwitcher theme={props.theme} setTheme={setTheme} setMainTheme={props.setTheme}/>
                     <BasketButton products={props.products}/>
                 </div>
@@ -156,6 +158,27 @@ const BasketButton = (props) => {
     )
 }
 
+const LanguageSelector = (props) => {
+    const onChange = (event) => {
+        props.setLanguage(event.target.value)
+        console.log(event.target.value)
+    }
+    const style = {
+        border: "none",
+        background: "none",
+        marginRight: "10px",
+        color: props.theme == "dark" ? "white" : "black"
+    }
+
+    return (
+        <select value={props.language} onChange={onChange} style={style}>
+            <option value="en">en</option>
+            <option value="uk">uk</option>
+            <option value="ru">ru</option>
+        </select>
+    )
+}
+
 const ThemeSwitcher = (props) => {
     const lightThemeImage = "https://img.icons8.com/windows/344/do-not-disturb-2.png"
     const darkThemeImage = "https://img.icons8.com/windows/344/ffffff/sun--v1.png"
@@ -165,7 +188,7 @@ const ThemeSwitcher = (props) => {
     const changeTheme = () => {
         const themeToSet = {dark: 'light', light: 'dark'}[props.theme]
         
-        setImage(themeToSet == "light" ? lightThemeImage : darkThemeImage)
+        setImage(themeToSet === "light" ? lightThemeImage : darkThemeImage)
         props.setTheme(themeToSet)
         props.setMainTheme(themeToSet)
     }
